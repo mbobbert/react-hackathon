@@ -1,6 +1,6 @@
 import React from 'react';
 import './task.css';
-import {Log} from '../log/log.js';
+import {Log,Loglist} from '../log/log.js';
 
 
 export class TaskForm extends React.Component {
@@ -124,7 +124,7 @@ export class TaskList extends React.Component {
         //if the state is true set to false
         if(this.state.clicked){
             this.setState(
-                {
+                {//if the clicked=true,set it to false, if
                     clicked: false,
                     openedKey:null
 
@@ -162,7 +162,8 @@ export class TaskList extends React.Component {
                 {this.props.description}
                 </div>
                 <button onClick={this.props.onTaskClick.bind(this,this.props.taskkey)}>View more</button>
-                <Log opened={this.props.opened}/>
+                <LogList opened={this.props.opened}
+                taskkey={this.props.taskkey}/>
             </div>
         )
     }

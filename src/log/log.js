@@ -4,26 +4,72 @@ import './log.css';
 
 
 
+export class LogList extends React.Component {
+
+    constructor(props) {
+		super(props);
+
+		this.state = {
+            loaded: false,
+		};
+    }
+    componentWillMount() {
+		fetch('http://worklog.podlomar.org/task/'+this.props.taskkey+'/logs')
+			.then(response => response.json())
+			.then(
+				(json) => {
+					this.setState(
+						{
+							loaded: true,
+							logs: json
+						}
+					);
+				}
+			);
+    }
+
+    render() {
+        console.log('hi');
+        if(this.props.opened) {
+            if(!this.state.loaded)
+                return <h1>Loading...</h1>;
+
+            return (
+                <div className="container">
+                {
+                    this.state.logs.map(
+                        (log) => {
+                            return (
+                                <Log
+                                user={log.user}
+                                description={log.description}
+                                hours={log.hours}
+                                taskkey={this.props.task.key}
+                                />
+                            )
+                        }
+                    )
+                }
+                </div>
+            )
+        } else {
+            return <div></div>;
+        }
+    }
+}
 
 
 export class Log extends React.Component {
-
     render() {
-        if(this.props.opened) {
             return (
                 <div>
-                    <div className="log-name">Jordan Gray
+                    <div className="log-name">{this.props.user}
                     </div>
-                    <div className="log-description">Fixing bug
+                    <div className="log-description">{this.props.description}
                     </div>
-                    <div className="log-time-spent">6 h
+                    <div className="log-time-spent">{this.props.hours}
                     </div>
                 </div>
             );
-        } else {
-            return (
-                <div></div>
-            );
-        }
     }
 }
