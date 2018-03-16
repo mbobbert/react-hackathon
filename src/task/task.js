@@ -23,14 +23,14 @@ export class TaskForm extends React.Component {
 						value={this.state.name}
                         onChange={this.dataChanged.bind(this)}/>
 				</label>
-				<label>Description :
+				<label>Description:
 					<input
 						type="text"
 						name="description"
 						value={this.state.description}
                         onChange={this.dataChanged.bind(this)}/>
 				</label>
-				<button onClick={this.sendPost.bind(this)}>Add</button>
+				<button className="button" onClick={this.sendPost.bind(this)}>Add</button>
 		</div>
         )
     }
@@ -161,7 +161,7 @@ export class TaskList extends React.Component {
                 <div className = "task-description">
                 {this.props.description}
                 </div>
-                <button onClick={this.props.onTaskClick.bind(this,this.props.taskkey)}>View more</button>
+                <button className="button" onClick={this.props.onTaskClick.bind(this,this.props.taskkey)}>View more</button>
                 <LogList opened={this.props.opened}
                 taskkey={this.props.taskkey}/>
             </div>

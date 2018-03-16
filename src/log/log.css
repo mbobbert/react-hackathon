@@ -1,7 +1,13 @@
-.log-name{
+.log-overview{
     background-color: white;
     border: 1px solid lightgrey;
     border-radius: 4px;
     padding: 1rem;
     margin-bottom: 0.5rem;
+    width: 60vw;
+}
+
+.log-name {
+    font-weight: bold;
+    color: crimson;
 }

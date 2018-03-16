@@ -62,7 +62,7 @@ export class LogList extends React.Component {
 export class Log extends React.Component {
     render() {
             return (
-                <div>
+                <div className="log-overview">
                     <div className="log-name">{this.props.user}
                     </div>
                     <div className="log-description">{this.props.description}

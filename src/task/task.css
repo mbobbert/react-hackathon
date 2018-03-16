@@ -6,6 +6,11 @@
     margin-bottom: 0.5rem;
 }
 
+.task-name,
+.task-description {
+    margin-right: 0.5rem;
+}
+
 .task-form{
     background-color: white;
 	border: 1px solid lightgrey;
@@ -13,3 +18,21 @@
 	padding: 1rem;
 	margin-bottom: 1.5rem;
 }
+
+.button {
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    margin: 0.5rem;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.task-name {
+    font-weight: bold;
+}
+
+
+
