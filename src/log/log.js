@@ -2,6 +2,10 @@ import React from 'react';
 import '../task/task.js';
 import './log.css';
 
+
+
+
+
 export class Log extends React.Component {
 
     render() {

@@ -58,21 +58,6 @@ export class TaskForm extends React.Component {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //********************************TASK LIST ------------------------ */
 
 export class TaskList extends React.Component {
@@ -83,7 +68,7 @@ export class TaskList extends React.Component {
 		this.state = {
             loaded: false,
             clicked: false,
-            openedKey: 2
+            openedKey: null
 		};
     }
 
@@ -123,7 +108,10 @@ export class TaskList extends React.Component {
                             <Task
                             name={task.name}
                             opened={opened}
-                            description={task.description}/>
+                            description={task.description}
+                            onTaskClick ={this.onTaskClick.bind(this)}
+                            taskkey={task.key}/>
+
                         )
                     }
                 )
@@ -132,19 +120,22 @@ export class TaskList extends React.Component {
         )
     }
 
-    onTaskClick(opened) {
+    onTaskClick(taskkey) {
         //if the state is true set to false
-        if(opened){
+        if(this.state.clicked){
             this.setState(
                 {
-                    opened: false
+                    clicked: false,
+                    openedKey:null
+
                 }
             );
             //else set to true
         }else {
             this.setState(
                 {
-                    opened: true
+                    clicked: true,
+                    openedKey:taskkey
                 }
             );
 
@@ -170,7 +161,7 @@ export class TaskList extends React.Component {
                 <div className = "task-description">
                 {this.props.description}
                 </div>
-                <button>View more</button>
+                <button onClick={this.props.onTaskClick.bind(this,this.props.taskkey)}>View more</button>
                 <Log opened={this.props.opened}/>
             </div>
         )
