@@ -1,19 +1,46 @@
 import React from 'react';
 import './task.css';
 
+export class TaskForm extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            description: "",
+            key:"",
+            name:""
 
+		};
 
+    }
+    render(){
+        return(
+        <div className="task-form">
+				<label>Task Name:
+					<input
+						type="text"
+						name="name"
+						value={this.state.name}/>
+				</label>
+				<label>Description :
+					<input
+						type="text"
+						name="description"
+						value={this.state.description} />
+				</label>
+				<button>Add</button>
+			</div>
+        )
+    }
 
-export default class TaskList extends React.Component {
+}
+
+export class TaskList extends React.Component {
 
     constructor(props) {
 		super(props);
 
 		this.state = {
             loaded: false,
-            description: "",
-            key:"",
-            name:""
 
 		};
     }

@@ -5,3 +5,11 @@
     padding: 1rem;
     margin-bottom: 0.5rem;
 }
+
+.task-form{
+    background-color: white;
+	border: 1px solid lightgrey;
+	border-radius: 4px;
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+}
