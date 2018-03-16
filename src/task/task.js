@@ -20,10 +20,10 @@ let data = [
     }
 ]
 
-export default class TaskList extends React.component {
+export default class TaskList extends React.Component {
     render() {
         return (
-            <div>
+            <div className="container">
             {
                 data.map(
                     (task) => {
