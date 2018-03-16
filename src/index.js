@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'normalize.css';
 import './index.css';
 import {TaskList,TaskForm} from './task/task.js';
-
+import Log from './log/log.js';
 
 
 

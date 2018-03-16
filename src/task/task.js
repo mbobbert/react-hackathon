@@ -1,5 +1,7 @@
 import React from 'react';
 import './task.css';
+import {Log} from '../log/log.js';
+
 
 export class TaskForm extends React.Component {
 	constructor(props) {
@@ -8,10 +10,9 @@ export class TaskForm extends React.Component {
             description: "",
             key:"",
             name:""
-
 		}
-
     }
+
     render(){
         return(
         <div className="task-form">
@@ -120,6 +121,8 @@ export class TaskList extends React.Component {
                 <div className = "task-description">
                 {this.props.description}
                 </div>
+                <button>View more</button>
+                <Log />
             </div>
         )
     }
