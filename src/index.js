@@ -2,11 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
 import './index.css';
+import TaskList from './task/task.js';
+
+
 
 class App extends React.Component {
 	render() {
 		return (
-			<h1>Hello, Hackathon!</h1>
+			<div>
+				<h1>To do list</h1>
+				<div className="container">
+					<TaskList />
+				</div>
+			</div>
 		)
 	}
 }
