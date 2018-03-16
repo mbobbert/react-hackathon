@@ -9,7 +9,7 @@ export class TaskForm extends React.Component {
             key:"",
             name:""
 
-		};
+		}
 
     }
     render(){
@@ -19,19 +19,40 @@ export class TaskForm extends React.Component {
 					<input
 						type="text"
 						name="name"
-						value={this.state.name}/>
+						value={this.state.name}
+                        onChange={this.dataChanged.bind(this)}/>
 				</label>
 				<label>Description :
 					<input
 						type="text"
 						name="description"
-						value={this.state.description} />
+						value={this.state.description}
+                        onChange={this.dataChanged.bind(this)}/>
 				</label>
-				<button>Add</button>
-			</div>
+				<button onClick={this.sendPost.bind(this)}>Add</button>
+		</div>
         )
     }
 
+    dataChanged(event) {
+		var newState = {};
+		newState[event.target.name] = event.target.value;
+		this.setState(newState);
+    }
+    sendPost() {
+		fetch('http://worklog.podlomar.org/tasks/create',
+			{
+				mode: 'no-cors',
+				method: "POST",
+				body: JSON.stringify(this.state),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			}
+		).then(function(response) {
+            location.reload();
+		});
+	}
 }
 
 export class TaskList extends React.Component {

@@ -13,8 +13,8 @@ class App extends React.Component {
 			<div>
 				<h1>To do list</h1>
 				<div className="container">
-					<TaskForm  />
-					<TaskList  />
+					<TaskForm />
+					<TaskList />
 				</div>
 			</div>
 		)
