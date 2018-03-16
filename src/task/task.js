@@ -1,6 +1,6 @@
 import React from 'react';
 import './task.css';
-import {Log,Loglist} from '../log/log.js';
+import {Log,LogList} from '../log/log.js';
 
 
 export class TaskForm extends React.Component {

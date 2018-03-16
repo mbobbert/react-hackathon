@@ -44,7 +44,7 @@ export class LogList extends React.Component {
                                 user={log.user}
                                 description={log.description}
                                 hours={log.hours}
-                                taskkey={this.props.task.key}
+                                taskkey={this.props.taskkey}
                                 />
                             )
                         }
