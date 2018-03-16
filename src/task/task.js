@@ -16,14 +16,14 @@ export class TaskForm extends React.Component {
     render(){
         return(
         <div className="task-form">
-				<label>Task Name:
+				<label className="label">Task Name:
 					<input
 						type="text"
 						name="name"
 						value={this.state.name}
                         onChange={this.dataChanged.bind(this)}/>
 				</label>
-				<label>Description:
+				<label className="label">Description:
 					<input
 						type="text"
 						name="description"

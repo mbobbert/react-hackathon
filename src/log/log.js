@@ -63,12 +63,14 @@ export class Log extends React.Component {
     render() {
             return (
                 <div className="log-overview">
-                    <div className="log-name">{this.props.user}
+                    <div className="log-name">Username: {this.props.user}
                     </div>
-                    <div className="log-description">{this.props.description}
+
+                    <div className="log-description">Description: {this.props.description}
                     </div>
-                    <div className="log-time-spent">{this.props.hours}
+                    <div className="log-time-spent">Time spent: {this.props.hours} hours.
                     </div>
+
                 </div>
             );
     }
