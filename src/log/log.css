@@ -1,5 +1,5 @@
 .log-overview{
-    background-color: white;
+    background-color: darkgray;
     border: 1px solid lightgrey;
     border-radius: 4px;
     padding: 1rem;
@@ -10,4 +10,5 @@
 .log-name {
     font-weight: bold;
     color: crimson;
+    margin-bottom: 0.5rem;
 }
