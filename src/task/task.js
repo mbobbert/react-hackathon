@@ -2,36 +2,55 @@ import React from 'react';
 import './task.css';
 
 
-let data = [
-    {
-        task_name: 'Name of task: Clean up code',
-        time_spent: 'Time spent: 10 h',
-        task_description: 'We have to make sure that we indent properly'
-    },
-    {
-        task_name: 'Name of task: Clean up code',
-        time_spent: 'Time spent: 10 h',
-        task_description: 'We have to make sure that we indent properly'
-    },
-    {
-        task_name: 'Name of task: Clean up code',
-        time_spent: 'Time spent: 10 h',
-        task_description: 'We have to make sure that we indent properly'
-    }
-]
+
 
 export default class TaskList extends React.Component {
+
+    constructor(props) {
+		super(props);
+
+		this.state = {
+            loaded: false,
+            description: "",
+            key:"",
+            name:""
+
+		};
+    }
+
+
+    componentWillMount() {
+		fetch('http://worklog.podlomar.org/tasks')
+			.then(response => response.json())
+			.then(
+				(json) => {
+					this.setState(
+						{
+							loaded: true,
+							tasks: json
+						}
+					);
+				}
+			);
+	}
+
+
+
     render() {
+
+        if(!this.state.loaded)
+            return <h1>Loading...</h1>;
+
         return (
             <div className="container">
             {
-                data.map(
+                this.state.tasks.map(
                     (task) => {
                         return (
                             <Task
-                            task_name={task.task_name}
-                            time_spent={task.time_spent}
-                            task_description={task.task_description}/>
+                            name={task.name}
+
+                            description={task.description}/>
                         )
                     }
                 )
@@ -46,11 +65,12 @@ export default class TaskList extends React.Component {
     render() {
         return (
             <div className = "task">
-                <div className = "task-name"> {this.props.task_name}
+                <div className = "task-name">
+                {this.props.name}
                 </div>
-                <div className = "time-spent"> {this.props.time_spent}
-                </div>
-                <div className = "task-description"> {this.props.task_description}
+
+                <div className = "task-description">
+                {this.props.description}
                 </div>
             </div>
         )
