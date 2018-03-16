@@ -56,6 +56,25 @@ export class TaskForm extends React.Component {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//********************************TASK LIST ------------------------ */
+
 export class TaskList extends React.Component {
 
     constructor(props) {
@@ -63,7 +82,8 @@ export class TaskList extends React.Component {
 
 		this.state = {
             loaded: false,
-
+            clicked: false,
+            openedKey: 2
 		};
     }
 
@@ -95,10 +115,14 @@ export class TaskList extends React.Component {
             {
                 this.state.tasks.map(
                     (task) => {
+                        var opened = false;
+                        if(task.key == this.state.openedKey)
+                            opened = true;
+
                         return (
                             <Task
                             name={task.name}
-
+                            opened={opened}
                             description={task.description}/>
                         )
                     }
@@ -107,13 +131,38 @@ export class TaskList extends React.Component {
             </div>
         )
     }
+
+    onTaskClick(opened) {
+        //if the state is true set to false
+        if(opened){
+            this.setState(
+                {
+                    opened: false
+                }
+            );
+            //else set to true
+        }else {
+            this.setState(
+                {
+                    opened: true
+                }
+            );
+
+        }
+    }
+
 }
 
 
+
+
+//******************************TASK ------------------*/
+
  class Task extends React.Component {
-    render() {
-        return (
-            <div className = "task">
+
+     render() {
+         return (
+             <div className = "task">
                 <div className = "task-name">
                 {this.props.name}
                 </div>
@@ -122,8 +171,10 @@ export class TaskList extends React.Component {
                 {this.props.description}
                 </div>
                 <button>View more</button>
-                <Log />
+                <Log opened={this.props.opened}/>
             </div>
         )
     }
+
+
 }
